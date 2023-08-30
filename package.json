@@ -1,0 +1,41 @@
+{
+  "name": "@dicebear/typings-figma-rest-api",
+  "version": "1.0.0",
+  "description": "TypeScript typings for the Figma REST API",
+  "keywords": [],
+  "homepage": "https://www.dicebear.com",
+  "bugs": {
+    "url": "https://github.com/dicebear/figma-rest-api-typings/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dicebear/figma-rest-api-typings.git"
+  },
+  "license": "MIT",
+  "author": "Florian Körner <contact@florian-koerner.com>",
+  "type": "module",
+  "main": "./index.js",
+  "exports": "./index.js",
+  "types": "./index.d.ts",
+  "files": [
+    "LICENSE",
+    "index.js",
+    "index.d.ts",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsx generate.ts"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^18.2.1",
+    "@types/jsdom": "^21.1.2",
+    "@types/node": "^18.17.11",
+    "@types/node-fetch": "^2.6.4",
+    "jsdom": "^22.1.0",
+    "puppeteer": "^21.1.1",
+    "tsx": "^3.12.7"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
