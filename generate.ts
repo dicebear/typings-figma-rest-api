@@ -37,7 +37,7 @@ function getProperties(element: Element) {
 
         if (!propName || !propType) return;
 
-        properties += `    readonly ${propName}: ${propType};\n`;
+        properties += `    ${propName}: ${propType};\n`;
     });
 
     return properties;
@@ -129,7 +129,7 @@ document.getElementById('node-types')?.querySelectorAll('tbody tr').forEach((row
     nodeTypes.push(name);
 
     output += `export interface ${name} extends ${extending} {\n`;
-    output += `    readonly type: '${name}';\n`;
+    output += `    type: '${name}';\n`;
     output += getProperties(row);
     output += `}\n\n`;
 });
@@ -154,7 +154,7 @@ document.getElementById('files-types')?.querySelectorAll('tbody tr').forEach((ro
 
 // Patches
 output = output.replace('type Transform = null;', 'type Transform = [[number, number, number], [number, number, number]];');
-output = output.replace('interface TEXT extends VECTOR {', 'interface TEXT extends VECTOR {\n    readonly fillOverrideTable: never;');
+output = output.replace('interface TEXT extends VECTOR {', 'interface TEXT extends VECTOR {\n    fillOverrideTable: never;');
 
 // Static
 output += await fs.readFile('./static.d.ts', 'utf-8');

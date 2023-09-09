@@ -1,346 +1,346 @@
 export interface Global {
-    readonly id: string;
-    readonly name: string;
-    readonly visible: boolean;
-    readonly type: string;
-    readonly rotation: number;
-    readonly pluginData: unknown;
-    readonly sharedPluginData: unknown;
-    readonly componentPropertyReferences: Map<string, String>;
-    readonly boundVariables: Map<string, VariableAlias | VariableAlias[]>;
+    id: string;
+    name: string;
+    visible: boolean;
+    type: string;
+    rotation: number;
+    pluginData: unknown;
+    sharedPluginData: unknown;
+    componentPropertyReferences: Map<string, String>;
+    boundVariables: Map<string, VariableAlias | VariableAlias[]>;
 }
 
 export interface DOCUMENT extends Global {
-    readonly type: 'DOCUMENT';
-    readonly children: Node[];
+    type: 'DOCUMENT';
+    children: Node[];
 }
 
 export interface CANVAS extends Global {
-    readonly type: 'CANVAS';
-    readonly children: Node[];
-    readonly backgroundColor: Color;
-    readonly prototypeStartNodeID: string;
-    readonly flowStartingPoints: FlowStartingPoint[];
-    readonly prototypeDevice: PrototypeDevice;
-    readonly exportSettings: ExportSetting[];
+    type: 'CANVAS';
+    children: Node[];
+    backgroundColor: Color;
+    prototypeStartNodeID: string;
+    flowStartingPoints: FlowStartingPoint[];
+    prototypeDevice: PrototypeDevice;
+    exportSettings: ExportSetting[];
 }
 
 export interface FRAME extends Global {
-    readonly type: 'FRAME';
-    readonly children: Node[];
-    readonly locked: boolean;
-    readonly background: Paint[];
-    readonly backgroundColor: Color;
-    readonly fills: Paint[];
-    readonly strokes: Paint[];
-    readonly strokeWeight: number;
-    readonly strokeAlign: 'INSIDE' | 'OUTSIDE' | 'CENTER';
-    readonly strokeDashes: number[];
-    readonly cornerRadius: number;
-    readonly rectangleCornerRadii: number[];
-    readonly cornerSmoothing: number;
-    readonly exportSettings: ExportSetting[];
-    readonly blendMode: BlendMode;
-    readonly preserveRatio: boolean;
-    readonly constraints: LayoutConstraint;
-    readonly layoutAlign: 'INHERIT' | 'STRETCH' | 'MIN' | 'CENTER' | 'MAX' | 'STRETCH';
-    readonly transitionNodeID: string;
-    readonly transitionDuration: number;
-    readonly transitionEasing: EasingType;
-    readonly opacity: number;
-    readonly absoluteBoundingBox: Rectangle;
-    readonly absoluteRenderBounds: Rectangle;
-    readonly size: Vector;
-    readonly minWidth: number | null;
-    readonly maxWidth: number | null;
-    readonly minHeight: number | null;
-    readonly maxHeight: number | null;
-    readonly relativeTransform: Transform;
-    readonly clipsContent: boolean;
-    readonly layoutMode: 'NONE' | 'HORIZONTAL' | 'VERTICAL';
-    readonly layoutSizingHorizontal: 'FIXED' | 'HUG' | 'FILL';
-    readonly layoutSizingVertical: 'FIXED' | 'HUG' | 'FILL';
-    readonly layoutWrap: 'NO_WRAP' | 'WRAP';
-    readonly primaryAxisSizingMode: 'FIXED' | 'AUTO';
-    readonly counterAxisSizingMode: 'FIXED' | 'AUTO';
-    readonly primaryAxisAlignItems: 'MIN' | 'CENTER' | 'MAX' | 'SPACE_BETWEEN';
-    readonly counterAxisAlignItems: 'MIN' | 'CENTER' | 'MAX' | 'BASELINE';
-    readonly counterAxisAlignContent: 'AUTO' | 'SPACE_BETWEEN';
-    readonly paddingLeft: number;
-    readonly paddingRight: number;
-    readonly paddingTop: number;
-    readonly paddingBottom: number;
-    readonly horizontalPadding: number;
-    readonly verticalPadding: number;
-    readonly itemSpacing: number;
-    readonly counterAxisSpacing: number;
-    readonly layoutPositioning: 'ABSOLUTE';
-    readonly itemReverseZIndex: boolean;
-    readonly strokesIncludedInLayout: boolean;
-    readonly layoutGrids: LayoutGrid[];
-    readonly overflowDirection: 'HORIZONTAL_SCROLLING' | 'VERTICAL_SCROLLING' | 'HORIZONTAL_AND_VERTICAL_SCROLLING';
-    readonly effects: Effect[];
-    readonly isMask: boolean;
-    readonly isMaskOutline: boolean;
-    readonly styles: Map<StyleType, string>;
+    type: 'FRAME';
+    children: Node[];
+    locked: boolean;
+    background: Paint[];
+    backgroundColor: Color;
+    fills: Paint[];
+    strokes: Paint[];
+    strokeWeight: number;
+    strokeAlign: 'INSIDE' | 'OUTSIDE' | 'CENTER';
+    strokeDashes: number[];
+    cornerRadius: number;
+    rectangleCornerRadii: number[];
+    cornerSmoothing: number;
+    exportSettings: ExportSetting[];
+    blendMode: BlendMode;
+    preserveRatio: boolean;
+    constraints: LayoutConstraint;
+    layoutAlign: 'INHERIT' | 'STRETCH' | 'MIN' | 'CENTER' | 'MAX' | 'STRETCH';
+    transitionNodeID: string;
+    transitionDuration: number;
+    transitionEasing: EasingType;
+    opacity: number;
+    absoluteBoundingBox: Rectangle;
+    absoluteRenderBounds: Rectangle;
+    size: Vector;
+    minWidth: number | null;
+    maxWidth: number | null;
+    minHeight: number | null;
+    maxHeight: number | null;
+    relativeTransform: Transform;
+    clipsContent: boolean;
+    layoutMode: 'NONE' | 'HORIZONTAL' | 'VERTICAL';
+    layoutSizingHorizontal: 'FIXED' | 'HUG' | 'FILL';
+    layoutSizingVertical: 'FIXED' | 'HUG' | 'FILL';
+    layoutWrap: 'NO_WRAP' | 'WRAP';
+    primaryAxisSizingMode: 'FIXED' | 'AUTO';
+    counterAxisSizingMode: 'FIXED' | 'AUTO';
+    primaryAxisAlignItems: 'MIN' | 'CENTER' | 'MAX' | 'SPACE_BETWEEN';
+    counterAxisAlignItems: 'MIN' | 'CENTER' | 'MAX' | 'BASELINE';
+    counterAxisAlignContent: 'AUTO' | 'SPACE_BETWEEN';
+    paddingLeft: number;
+    paddingRight: number;
+    paddingTop: number;
+    paddingBottom: number;
+    horizontalPadding: number;
+    verticalPadding: number;
+    itemSpacing: number;
+    counterAxisSpacing: number;
+    layoutPositioning: 'ABSOLUTE';
+    itemReverseZIndex: boolean;
+    strokesIncludedInLayout: boolean;
+    layoutGrids: LayoutGrid[];
+    overflowDirection: 'HORIZONTAL_SCROLLING' | 'VERTICAL_SCROLLING' | 'HORIZONTAL_AND_VERTICAL_SCROLLING';
+    effects: Effect[];
+    isMask: boolean;
+    isMaskOutline: boolean;
+    styles: Map<StyleType, string>;
 }
 
 export interface GROUP extends FRAME {
-    readonly type: 'GROUP';
+    type: 'GROUP';
 }
 
 export interface SECTION extends Global {
-    readonly type: 'SECTION';
-    readonly sectionContentsHidden: boolean;
-    readonly devStatus: Object;
-    readonly fills: Paint[];
-    readonly strokes: Paint[];
-    readonly strokeWeight: number;
-    readonly strokeAlign: 'INSIDE' | 'OUTSIDE' | 'CENTER';
-    readonly children: Node[];
-    readonly absoluteBoundingBox: Rectangle;
-    readonly absoluteRenderBounds: Rectangle;
+    type: 'SECTION';
+    sectionContentsHidden: boolean;
+    devStatus: Object;
+    fills: Paint[];
+    strokes: Paint[];
+    strokeWeight: number;
+    strokeAlign: 'INSIDE' | 'OUTSIDE' | 'CENTER';
+    children: Node[];
+    absoluteBoundingBox: Rectangle;
+    absoluteRenderBounds: Rectangle;
 }
 
 export interface VECTOR extends Global {
-    readonly type: 'VECTOR';
-    readonly locked: boolean;
-    readonly exportSettings: ExportSetting[];
-    readonly blendMode: BlendMode;
-    readonly preserveRatio: boolean;
-    readonly layoutAlign: 'INHERIT' | 'STRETCH' | 'MIN' | 'CENTER' | 'MAX' | 'STRETCH';
-    readonly layoutGrow: number;
-    readonly constraints: LayoutConstraint;
-    readonly transitionNodeID: string;
-    readonly transitionDuration: number;
-    readonly transitionEasing: EasingType;
-    readonly opacity: number;
-    readonly absoluteBoundingBox: Rectangle;
-    readonly absoluteRenderBounds: Rectangle;
-    readonly effects: Effect[];
-    readonly size: Vector;
-    readonly relativeTransform: Transform;
-    readonly isMask: boolean;
-    readonly fills: Paint[];
-    readonly fillGeometry: Path[];
-    readonly fillOverrideTable: Map<number,PaintOverride>;
-    readonly strokes: Paint[];
-    readonly strokeWeight: number;
-    readonly individualStrokeWeights: StrokeWeights;
-    readonly strokeCap: string;
-    readonly strokeJoin: string;
-    readonly strokeDashes: number[];
-    readonly strokeMiterAngle: number;
-    readonly strokeGeometry: Path[];
-    readonly strokeAlign: 'INSIDE' | 'OUTSIDE' | 'CENTER';
-    readonly styles: Map<StyleType, string>;
+    type: 'VECTOR';
+    locked: boolean;
+    exportSettings: ExportSetting[];
+    blendMode: BlendMode;
+    preserveRatio: boolean;
+    layoutAlign: 'INHERIT' | 'STRETCH' | 'MIN' | 'CENTER' | 'MAX' | 'STRETCH';
+    layoutGrow: number;
+    constraints: LayoutConstraint;
+    transitionNodeID: string;
+    transitionDuration: number;
+    transitionEasing: EasingType;
+    opacity: number;
+    absoluteBoundingBox: Rectangle;
+    absoluteRenderBounds: Rectangle;
+    effects: Effect[];
+    size: Vector;
+    relativeTransform: Transform;
+    isMask: boolean;
+    fills: Paint[];
+    fillGeometry: Path[];
+    fillOverrideTable: Map<number,PaintOverride>;
+    strokes: Paint[];
+    strokeWeight: number;
+    individualStrokeWeights: StrokeWeights;
+    strokeCap: string;
+    strokeJoin: string;
+    strokeDashes: number[];
+    strokeMiterAngle: number;
+    strokeGeometry: Path[];
+    strokeAlign: 'INSIDE' | 'OUTSIDE' | 'CENTER';
+    styles: Map<StyleType, string>;
 }
 
 export interface BOOLEAN_OPERATION extends VECTOR {
-    readonly type: 'BOOLEAN_OPERATION';
-    readonly children: Node[];
-    readonly booleanOperation: string;
+    type: 'BOOLEAN_OPERATION';
+    children: Node[];
+    booleanOperation: string;
 }
 
 export interface STAR extends VECTOR {
-    readonly type: 'STAR';
+    type: 'STAR';
 }
 
 export interface LINE extends VECTOR {
-    readonly type: 'LINE';
+    type: 'LINE';
 }
 
 export interface ELLIPSE extends VECTOR {
-    readonly type: 'ELLIPSE';
-    readonly arcData: ArcData;
+    type: 'ELLIPSE';
+    arcData: ArcData;
 }
 
 export interface REGULAR_POLYGON extends VECTOR {
-    readonly type: 'REGULAR_POLYGON';
+    type: 'REGULAR_POLYGON';
 }
 
 export interface RECTANGLE extends VECTOR {
-    readonly type: 'RECTANGLE';
-    readonly cornerRadius: number;
-    readonly rectangleCornerRadii: number[];
-    readonly cornerSmoothing: number;
+    type: 'RECTANGLE';
+    cornerRadius: number;
+    rectangleCornerRadii: number[];
+    cornerSmoothing: number;
 }
 
 export interface TABLE extends Global {
-    readonly type: 'TABLE';
-    readonly absoluteBoundingBox: Rectangle;
-    readonly absoluteRenderBounds: Rectangle;
-    readonly blendMode: BlendMode;
-    readonly children: Node[];
-    readonly constraints: LayoutConstraint;
-    readonly effects: Effect[];
-    readonly exportSettings: ExportSetting[];
-    readonly relativeTransform: Transform;
-    readonly size: Vector;
-    readonly strokes: Paint[];
-    readonly strokeAlign: 'INSIDE' | 'OUTSIDE' | 'CENTER';
-    readonly strokeWeight: number;
+    type: 'TABLE';
+    absoluteBoundingBox: Rectangle;
+    absoluteRenderBounds: Rectangle;
+    blendMode: BlendMode;
+    children: Node[];
+    constraints: LayoutConstraint;
+    effects: Effect[];
+    exportSettings: ExportSetting[];
+    relativeTransform: Transform;
+    size: Vector;
+    strokes: Paint[];
+    strokeAlign: 'INSIDE' | 'OUTSIDE' | 'CENTER';
+    strokeWeight: number;
 }
 
 export interface TABLE_CELL extends Global {
-    readonly type: 'TABLE_CELL';
-    readonly absoluteBoundingBox: Rectangle;
-    readonly absoluteRenderBounds: Rectangle;
-    readonly characters: string;
-    readonly fills: Paint[];
-    readonly relativeTransform: Transform;
-    readonly size: Vector;
+    type: 'TABLE_CELL';
+    absoluteBoundingBox: Rectangle;
+    absoluteRenderBounds: Rectangle;
+    characters: string;
+    fills: Paint[];
+    relativeTransform: Transform;
+    size: Vector;
 }
 
 export interface TEXT extends VECTOR {
-    readonly fillOverrideTable: never;
-    readonly type: 'TEXT';
-    readonly characters: string;
-    readonly style: TypeStyle;
-    readonly characterStyleOverrides: number[];
-    readonly styleOverrideTable: Map<number,TypeStyle>;
-    readonly lineTypes: string[];
-    readonly lineIndentations: number[];
+    fillOverrideTable: never;
+    type: 'TEXT';
+    characters: string;
+    style: TypeStyle;
+    characterStyleOverrides: number[];
+    styleOverrideTable: Map<number,TypeStyle>;
+    lineTypes: string[];
+    lineIndentations: number[];
 }
 
 export interface SLICE extends Global {
-    readonly type: 'SLICE';
-    readonly exportSettings: ExportSetting[];
-    readonly absoluteBoundingBox: Rectangle;
-    readonly absoluteRenderBounds: Rectangle;
-    readonly size: Vector;
-    readonly relativeTransform: Transform;
+    type: 'SLICE';
+    exportSettings: ExportSetting[];
+    absoluteBoundingBox: Rectangle;
+    absoluteRenderBounds: Rectangle;
+    size: Vector;
+    relativeTransform: Transform;
 }
 
 export interface COMPONENT extends FRAME {
-    readonly type: 'COMPONENT';
-    readonly componentPropertyDefinitions: Map<string, ComponentPropertyDefinition>;
+    type: 'COMPONENT';
+    componentPropertyDefinitions: Map<string, ComponentPropertyDefinition>;
 }
 
 export interface COMPONENT_SET extends FRAME {
-    readonly type: 'COMPONENT_SET';
-    readonly componentPropertyDefinitions: Map<string, ComponentPropertyDefinition>;
+    type: 'COMPONENT_SET';
+    componentPropertyDefinitions: Map<string, ComponentPropertyDefinition>;
 }
 
 export interface INSTANCE extends FRAME {
-    readonly type: 'INSTANCE';
-    readonly componentId: string;
-    readonly isExposedInstance: boolean;
-    readonly exposedInstances: string[];
-    readonly componentProperties: Map<string, ComponentProperty>;
-    readonly overrides: Overrides[];
+    type: 'INSTANCE';
+    componentId: string;
+    isExposedInstance: boolean;
+    exposedInstances: string[];
+    componentProperties: Map<string, ComponentProperty>;
+    overrides: Overrides[];
 }
 
 export interface STICKY extends Global {
-    readonly type: 'STICKY';
-    readonly absoluteBoundingBox: Rectangle;
-    readonly absoluteRenderBounds: Rectangle;
-    readonly authorVisible: boolean;
-    readonly backgroundColor: Color;
-    readonly blendMode: BlendMode;
-    readonly characters: string;
-    readonly effects: Effect[];
-    readonly exportSettings: ExportSetting[];
-    readonly fills: Paint[];
-    readonly locked: boolean;
-    readonly opacity: number;
-    readonly relativeTransform: Transform;
+    type: 'STICKY';
+    absoluteBoundingBox: Rectangle;
+    absoluteRenderBounds: Rectangle;
+    authorVisible: boolean;
+    backgroundColor: Color;
+    blendMode: BlendMode;
+    characters: string;
+    effects: Effect[];
+    exportSettings: ExportSetting[];
+    fills: Paint[];
+    locked: boolean;
+    opacity: number;
+    relativeTransform: Transform;
 }
 
 export interface SHAPE_WITH_TEXT extends Global {
-    readonly type: 'SHAPE_WITH_TEXT';
-    readonly absoluteBoundingBox: Rectangle;
-    readonly absoluteRenderBounds: Rectangle;
-    readonly backgroundColor: Color;
-    readonly blendMode: BlendMode;
-    readonly characters: string;
-    readonly cornerRadius: number;
-    readonly rectangleCornerRadii: number[];
-    readonly cornerSmoothing: number;
-    readonly effects: Effect[];
-    readonly exportSettings: ExportSetting[];
-    readonly fills: Paint[];
-    readonly isMask: boolean;
-    readonly locked: boolean;
-    readonly opacity: number;
-    readonly shapeType: ShapeType;
-    readonly strokes: Paint[];
-    readonly strokeWeight: number;
-    readonly strokeCap: string;
-    readonly strokeJoin: string;
-    readonly strokeDashes: number[];
-    readonly strokeAlign: 'INSIDE' | 'OUTSIDE' | 'CENTER';
-    readonly relativeTransform: Transform;
-    readonly styles: Map<StyleType, string>;
+    type: 'SHAPE_WITH_TEXT';
+    absoluteBoundingBox: Rectangle;
+    absoluteRenderBounds: Rectangle;
+    backgroundColor: Color;
+    blendMode: BlendMode;
+    characters: string;
+    cornerRadius: number;
+    rectangleCornerRadii: number[];
+    cornerSmoothing: number;
+    effects: Effect[];
+    exportSettings: ExportSetting[];
+    fills: Paint[];
+    isMask: boolean;
+    locked: boolean;
+    opacity: number;
+    shapeType: ShapeType;
+    strokes: Paint[];
+    strokeWeight: number;
+    strokeCap: string;
+    strokeJoin: string;
+    strokeDashes: number[];
+    strokeAlign: 'INSIDE' | 'OUTSIDE' | 'CENTER';
+    relativeTransform: Transform;
+    styles: Map<StyleType, string>;
 }
 
 export interface CONNECTOR extends Global {
-    readonly type: 'CONNECTOR';
-    readonly absoluteBoundingBox: Rectangle;
-    readonly absoluteRenderBounds: Rectangle;
-    readonly backgroundColor: Color;
-    readonly blendMode: BlendMode;
-    readonly characters: string;
-    readonly connectorStart: ConnectorEndpoint;
-    readonly connectorEnd: ConnectorEndpoint;
-    readonly connectorStartStrokeCap: string;
-    readonly connectorEndStrokeCap: string;
-    readonly connectorLineType: ConnectorLineType;
-    readonly cornerRadius: number;
-    readonly rectangleCornerRadii: number[];
-    readonly cornerSmoothing: number;
-    readonly effects: Effect[];
-    readonly exportSettings: ExportSetting[];
-    readonly fills: Paint[];
-    readonly isMask: boolean;
-    readonly locked: boolean;
-    readonly opacity: number;
-    readonly strokes: Paint[];
-    readonly strokeWeight: number;
-    readonly strokeCap: string;
-    readonly strokeJoin: string;
-    readonly strokeDashes: number[];
-    readonly strokeAlign: 'INSIDE' | 'OUTSIDE' | 'CENTER';
-    readonly textBackground: ConnectorTextBackground;
-    readonly relativeTransform: Transform;
-    readonly styles: Map<StyleType, string>;
+    type: 'CONNECTOR';
+    absoluteBoundingBox: Rectangle;
+    absoluteRenderBounds: Rectangle;
+    backgroundColor: Color;
+    blendMode: BlendMode;
+    characters: string;
+    connectorStart: ConnectorEndpoint;
+    connectorEnd: ConnectorEndpoint;
+    connectorStartStrokeCap: string;
+    connectorEndStrokeCap: string;
+    connectorLineType: ConnectorLineType;
+    cornerRadius: number;
+    rectangleCornerRadii: number[];
+    cornerSmoothing: number;
+    effects: Effect[];
+    exportSettings: ExportSetting[];
+    fills: Paint[];
+    isMask: boolean;
+    locked: boolean;
+    opacity: number;
+    strokes: Paint[];
+    strokeWeight: number;
+    strokeCap: string;
+    strokeJoin: string;
+    strokeDashes: number[];
+    strokeAlign: 'INSIDE' | 'OUTSIDE' | 'CENTER';
+    textBackground: ConnectorTextBackground;
+    relativeTransform: Transform;
+    styles: Map<StyleType, string>;
 }
 
 export interface WASHI_TAPE extends VECTOR {
-    readonly type: 'WASHI_TAPE';
+    type: 'WASHI_TAPE';
 }
 
 export type Node = DOCUMENT | CANVAS | FRAME | GROUP | SECTION | VECTOR | BOOLEAN_OPERATION | STAR | LINE | ELLIPSE | REGULAR_POLYGON | RECTANGLE | TABLE | TABLE_CELL | TEXT | SLICE | COMPONENT | COMPONENT_SET | INSTANCE | STICKY | SHAPE_WITH_TEXT | CONNECTOR | WASHI_TAPE;
 
 export interface Color {
-    readonly r: number;
-    readonly g: number;
-    readonly b: number;
-    readonly a: number;
+    r: number;
+    g: number;
+    b: number;
+    a: number;
 }
 
 export interface ExportSetting {
-    readonly suffix: string;
-    readonly format: 'JPG' | 'PNG' | 'SVG';
-    readonly constraint: Constraint;
+    suffix: string;
+    format: 'JPG' | 'PNG' | 'SVG';
+    constraint: Constraint;
 }
 
 export interface Constraint {
-    readonly type: 'SCALE' | 'WIDTH' | 'HEIGHT';
-    readonly value: number;
+    type: 'SCALE' | 'WIDTH' | 'HEIGHT';
+    value: number;
 }
 
 export interface Rectangle {
-    readonly x: number;
-    readonly y: number;
-    readonly width: number;
-    readonly height: number;
+    x: number;
+    y: number;
+    width: number;
+    height: number;
 }
 
 export interface ArcData {
-    readonly startingAngle: number;
-    readonly endingAngle: number;
-    readonly innerRadius: number;
+    startingAngle: number;
+    endingAngle: number;
+    innerRadius: number;
 }
 
 type BlendMode = 'PASS_THROUGH' | 'NORMAL' | 'DARKEN' | 'MULTIPLY' | 'LINEAR_BURN' | 'COLOR_BURN' | 'LIGHTEN' | 'SCREEN' | 'LINEAR_DODGE' | 'COLOR_DODGE' | 'OVERLAY' | 'SOFT_LIGHT' | 'HARD_LIGHT' | 'DIFFERENCE' | 'EXCLUSION' | 'HUE' | 'SATURATION' | 'COLOR' | 'LUMINOSITY';
@@ -348,250 +348,250 @@ type BlendMode = 'PASS_THROUGH' | 'NORMAL' | 'DARKEN' | 'MULTIPLY' | 'LINEAR_BUR
 type EasingType = 'EASE_IN' | 'EASE_OUT' | 'EASE_IN_AND_OUT' | 'LINEAR' | 'GENTLE_SPRING';
 
 export interface FlowStartingPoint {
-    readonly nodeId: string;
-    readonly name: string;
+    nodeId: string;
+    name: string;
 }
 
 export interface LayoutConstraint {
-    readonly vertical: 'TOP' | 'BOTTOM' | 'CENTER' | 'TOP_BOTTOM' | 'SCALE';
-    readonly horizontal: 'LEFT' | 'RIGHT' | 'CENTER' | 'LEFT_RIGHT' | 'SCALE';
+    vertical: 'TOP' | 'BOTTOM' | 'CENTER' | 'TOP_BOTTOM' | 'SCALE';
+    horizontal: 'LEFT' | 'RIGHT' | 'CENTER' | 'LEFT_RIGHT' | 'SCALE';
 }
 
 export interface LayoutGrid {
-    readonly pattern: 'COLUMNS' | 'ROWS' | 'GRID';
-    readonly sectionSize: number;
-    readonly visible: boolean;
-    readonly color: Color;
-    readonly alignment: 'MIN' | 'STRETCH' | 'CENTER';
-    readonly gutterSize: number;
-    readonly offset: number;
-    readonly count: number;
+    pattern: 'COLUMNS' | 'ROWS' | 'GRID';
+    sectionSize: number;
+    visible: boolean;
+    color: Color;
+    alignment: 'MIN' | 'STRETCH' | 'CENTER';
+    gutterSize: number;
+    offset: number;
+    count: number;
 }
 
 export interface Effect {
-    readonly type: 'INNER_SHADOW' | 'DROP_SHADOW' | 'LAYER_BLUR' | 'BACKGROUND_BLUR';
-    readonly visible: boolean;
-    readonly radius: number;
-    readonly color: Color;
-    readonly blendMode: BlendMode;
-    readonly offset: Vector;
-    readonly spread: number;
-    readonly showShadowBehindNode: boolean;
+    type: 'INNER_SHADOW' | 'DROP_SHADOW' | 'LAYER_BLUR' | 'BACKGROUND_BLUR';
+    visible: boolean;
+    radius: number;
+    color: Color;
+    blendMode: BlendMode;
+    offset: Vector;
+    spread: number;
+    showShadowBehindNode: boolean;
 }
 
 export interface Hyperlink {
-    readonly type: 'URL' | 'NODE';
-    readonly url: string;
-    readonly nodeID: string;
+    type: 'URL' | 'NODE';
+    url: string;
+    nodeID: string;
 }
 
 export interface DocumentationLink {
-    readonly uri: string;
+    uri: string;
 }
 
 export interface Paint {
-    readonly type: 'SOLID' | 'GRADIENT_LINEAR' | 'GRADIENT_RADIAL' | 'GRADIENT_ANGULAR' | 'GRADIENT_DIAMOND' | 'IMAGE' | 'EMOJI' | 'VIDEO';
-    readonly visible: boolean;
-    readonly opacity: number;
-    readonly color: Color;
-    readonly blendMode: BlendMode;
-    readonly gradientHandlePositions: Vector[];
-    readonly gradientStops: ColorStop[];
-    readonly scaleMode: 'FILL' | 'FIT' | 'TILE' | 'STRETCH';
-    readonly imageTransform: Transform;
-    readonly scalingFactor: number;
-    readonly rotation: number;
-    readonly imageRef: string;
-    readonly filters: ImageFilters;
-    readonly gifRef: string;
-    readonly boundVariables: Map<string, VariableAlias | VariableAlias[]>;
+    type: 'SOLID' | 'GRADIENT_LINEAR' | 'GRADIENT_RADIAL' | 'GRADIENT_ANGULAR' | 'GRADIENT_DIAMOND' | 'IMAGE' | 'EMOJI' | 'VIDEO';
+    visible: boolean;
+    opacity: number;
+    color: Color;
+    blendMode: BlendMode;
+    gradientHandlePositions: Vector[];
+    gradientStops: ColorStop[];
+    scaleMode: 'FILL' | 'FIT' | 'TILE' | 'STRETCH';
+    imageTransform: Transform;
+    scalingFactor: number;
+    rotation: number;
+    imageRef: string;
+    filters: ImageFilters;
+    gifRef: string;
+    boundVariables: Map<string, VariableAlias | VariableAlias[]>;
 }
 
 export interface Vector {
-    readonly x: number;
-    readonly y: number;
+    x: number;
+    y: number;
 }
 
 export interface Size {
-    readonly width: number;
-    readonly height: number;
+    width: number;
+    height: number;
 }
 
 type Transform = [[number, number, number], [number, number, number]];
 
 export interface ImageFilters {
-    readonly exposure: number;
-    readonly contrast: number;
-    readonly saturation: number;
-    readonly temperature: number;
-    readonly tint: number;
-    readonly highlights: number;
-    readonly shadows: number;
+    exposure: number;
+    contrast: number;
+    saturation: number;
+    temperature: number;
+    tint: number;
+    highlights: number;
+    shadows: number;
 }
 
 export interface FrameOffset {
-    readonly node_id: string;
-    readonly node_offset: Vector;
+    node_id: string;
+    node_offset: Vector;
 }
 
 export interface ColorStop {
-    readonly position: number;
-    readonly color: Color;
+    position: number;
+    color: Color;
 }
 
 export interface PaintOverride {
-    readonly fills: Paint[];
-    readonly inheritFillStyleId: string;
+    fills: Paint[];
+    inheritFillStyleId: string;
 }
 
 export interface TypeStyle {
-    readonly fontFamily: string;
-    readonly fontPostScriptName: string;
-    readonly paragraphSpacing: number;
-    readonly paragraphIndent: number;
-    readonly listSpacing: number;
-    readonly italic: boolean;
-    readonly fontWeight: number;
-    readonly fontSize: number;
-    readonly textCase: 'UPPER' | 'LOWER' | 'TITLE' | 'SMALL_CAPS' | 'SMALL_CAPS_FORCED';
-    readonly textDecoration: 'STRIKETHROUGH' | 'UNDERLINE';
-    readonly textAutoResize: 'HEIGHT' | 'WIDTH_AND_HEIGHT' | '[DEPRECATED] TRUNCATE';
-    readonly textTruncation: 'DISABLED' | 'ENDING';
-    readonly maxLines: number;
-    readonly textAlignHorizontal: 'LEFT' | 'RIGHT' | 'CENTER' | 'JUSTIFIED';
-    readonly textAlignVertical: 'TOP' | 'CENTER' | 'BOTTOM';
-    readonly letterSpacing: number;
-    readonly fills: Paint[];
-    readonly hyperlink: Hyperlink;
-    readonly opentypeFlags: Map<string, number>;
-    readonly lineHeightPx: number;
-    readonly lineHeightPercent: number;
-    readonly lineHeightPercentFontSize: number;
-    readonly lineHeightUnit: 'PIXELS' | 'FONT_SIZE_%' | 'INTRINSIC_%';
+    fontFamily: string;
+    fontPostScriptName: string;
+    paragraphSpacing: number;
+    paragraphIndent: number;
+    listSpacing: number;
+    italic: boolean;
+    fontWeight: number;
+    fontSize: number;
+    textCase: 'UPPER' | 'LOWER' | 'TITLE' | 'SMALL_CAPS' | 'SMALL_CAPS_FORCED';
+    textDecoration: 'STRIKETHROUGH' | 'UNDERLINE';
+    textAutoResize: 'HEIGHT' | 'WIDTH_AND_HEIGHT' | '[DEPRECATED] TRUNCATE';
+    textTruncation: 'DISABLED' | 'ENDING';
+    maxLines: number;
+    textAlignHorizontal: 'LEFT' | 'RIGHT' | 'CENTER' | 'JUSTIFIED';
+    textAlignVertical: 'TOP' | 'CENTER' | 'BOTTOM';
+    letterSpacing: number;
+    fills: Paint[];
+    hyperlink: Hyperlink;
+    opentypeFlags: Map<string, number>;
+    lineHeightPx: number;
+    lineHeightPercent: number;
+    lineHeightPercentFontSize: number;
+    lineHeightUnit: 'PIXELS' | 'FONT_SIZE_%' | 'INTRINSIC_%';
 }
 
 export interface Component {
-    readonly key: string;
-    readonly name: string;
-    readonly description: string;
-    readonly componentSetId?: string;
-    readonly documentationLinks: DocumentationLink[];
-    readonly remote: boolean;
+    key: string;
+    name: string;
+    description: string;
+    componentSetId?: string;
+    documentationLinks: DocumentationLink[];
+    remote: boolean;
 }
 
 export interface ComponentSet {
-    readonly key: string;
-    readonly name: string;
-    readonly description: string;
-    readonly documentationLinks: DocumentationLink[];
-    readonly remote: boolean;
+    key: string;
+    name: string;
+    description: string;
+    documentationLinks: DocumentationLink[];
+    remote: boolean;
 }
 
 export interface Style {
-    readonly key: string;
-    readonly name: string;
-    readonly description: string;
-    readonly remote: boolean;
-    readonly styleType: StyleType;
+    key: string;
+    name: string;
+    description: string;
+    remote: boolean;
+    styleType: StyleType;
 }
 
 export interface ShapeType {
-    readonly SQUARE: string;
-    readonly ELLIPSE: string;
-    readonly ROUNDED_RECTANGLE: string;
-    readonly DIAMOND: string;
-    readonly TRIANGLE_DOWN: string;
-    readonly PARALLELOGRAM_RIGHT: string;
-    readonly PARALLELOGRAM_LEFT: string;
-    readonly ENG_DATABASE: string;
-    readonly ENG_QUEUE: string;
-    readonly ENG_FILE: string;
-    readonly ENG_FOLDER: string;
-    readonly TRAPEZOID: string;
-    readonly PREDEFINED_PROCESS: string;
-    readonly SHIELD: string;
-    readonly DOCUMENT_SINGLE: string;
-    readonly DOCUMENT_MULTIPLE: string;
-    readonly MANUAL_INPUT: string;
-    readonly HEXAGON: string;
-    readonly CHEVRON: string;
-    readonly PENTAGON: string;
-    readonly OCTAGON: string;
-    readonly STAR: string;
-    readonly PLUS: string;
-    readonly ARROW_LEFT: string;
-    readonly ARROW_RIGHT: string;
-    readonly SUMMING_JUNCTION: string;
-    readonly OR: string;
-    readonly SPEECH_BUBBLE: string;
-    readonly INTERNAL_STORAGE: string;
+    SQUARE: string;
+    ELLIPSE: string;
+    ROUNDED_RECTANGLE: string;
+    DIAMOND: string;
+    TRIANGLE_DOWN: string;
+    PARALLELOGRAM_RIGHT: string;
+    PARALLELOGRAM_LEFT: string;
+    ENG_DATABASE: string;
+    ENG_QUEUE: string;
+    ENG_FILE: string;
+    ENG_FOLDER: string;
+    TRAPEZOID: string;
+    PREDEFINED_PROCESS: string;
+    SHIELD: string;
+    DOCUMENT_SINGLE: string;
+    DOCUMENT_MULTIPLE: string;
+    MANUAL_INPUT: string;
+    HEXAGON: string;
+    CHEVRON: string;
+    PENTAGON: string;
+    OCTAGON: string;
+    STAR: string;
+    PLUS: string;
+    ARROW_LEFT: string;
+    ARROW_RIGHT: string;
+    SUMMING_JUNCTION: string;
+    OR: string;
+    SPEECH_BUBBLE: string;
+    INTERNAL_STORAGE: string;
 }
 
 export interface ConnectorEndpoint {
-    readonly endpointNodeId: string;
-    readonly position: Vector;
-    readonly endpointNodeId: string;
-    readonly magnet: ConnectorMagnet;
+    endpointNodeId: string;
+    position: Vector;
+    endpointNodeId: string;
+    magnet: ConnectorMagnet;
 }
 
 export interface ConnectorLineType {
-    readonly ELBOWED: string;
-    readonly STRAIGHT: string;
+    ELBOWED: string;
+    STRAIGHT: string;
 }
 
 export interface ConnectorTextBackground {
-    readonly cornerRadius: CornerRadius;
-    readonly fills: Paint[];
+    cornerRadius: CornerRadius;
+    fills: Paint[];
 }
 
 export interface ComponentPropertyDefinition {
-    readonly type: ComponentPropertyType;
-    readonly defaultValue: boolean | string;
-    readonly variantOptions?: string[];
-    readonly preferredValues?: InstanceSwapPreferredValue[];
+    type: ComponentPropertyType;
+    defaultValue: boolean | string;
+    variantOptions?: string[];
+    preferredValues?: InstanceSwapPreferredValue[];
 }
 
 export interface ComponentProperty {
-    readonly type: ComponentPropertyType;
-    readonly value: boolean | string;
-    readonly preferredValues?: InstanceSwapPreferredValue[];
-    readonly boundVariables: Map<string, VariableAlias | VariableAlias[]>;
+    type: ComponentPropertyType;
+    value: boolean | string;
+    preferredValues?: InstanceSwapPreferredValue[];
+    boundVariables: Map<string, VariableAlias | VariableAlias[]>;
 }
 
 export interface ComponentPropertyType {
-    readonly BOOLEAN: string;
-    readonly INSTANCE_SWAP: string;
-    readonly TEXT: string;
-    readonly VARIANT: string;
+    BOOLEAN: string;
+    INSTANCE_SWAP: string;
+    TEXT: string;
+    VARIANT: string;
 }
 
 export interface InstanceSwapPreferredValue {
-    readonly type: 'COMPONENT' | 'COMPONENT_SET';
-    readonly key: string;
+    type: 'COMPONENT' | 'COMPONENT_SET';
+    key: string;
 }
 
 export interface PrototypeDevice {
-    readonly type: 'NONE' | 'PRESET' | 'CUSTOM' | 'PRESENTATION';
-    readonly size: Size;
-    readonly presetIdentifier: string;
-    readonly rotation: 'NONE' | 'CCW_90';
+    type: 'NONE' | 'PRESET' | 'CUSTOM' | 'PRESENTATION';
+    size: Size;
+    presetIdentifier: string;
+    rotation: 'NONE' | 'CCW_90';
 }
 
 export interface StrokeWeights {
-    readonly top: number;
-    readonly right: number;
-    readonly bottom: number;
-    readonly left: number;
+    top: number;
+    right: number;
+    bottom: number;
+    left: number;
 }
 
 export interface Overrides {
-    readonly id: string;
-    readonly overriddenFields: string[];
+    id: string;
+    overriddenFields: string[];
 }
 
 export interface VariableAlias {
-    readonly type: string;
-    readonly id: string;
+    type: string;
+    id: string;
 }
 
 interface GetFileResponse {
