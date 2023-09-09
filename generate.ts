@@ -91,6 +91,16 @@ function isExtendingVector(element: Element) {
     return extendsVector;
 }
 
+function isExtendingFrame(element: Element) {
+    let extendsFrame = false;
+    
+    element.querySelectorAll('td:last-child [class*="--literal--"]')?.forEach((literal) => {
+        if (literal.textContent?.trim() === 'FRAME') extendsFrame = true;
+    });
+
+    return extendsFrame;
+}
+
 // Global properties
 document.getElementById('global-properties')?.querySelectorAll('tbody tr').forEach((row) => {
     output += `export interface Global {\n`;
@@ -106,11 +116,19 @@ document.getElementById('node-types')?.querySelectorAll('tbody tr').forEach((row
     
     if (!name) return;
 
-    let extendsVector = isExtendingVector(row);
+    let extending = 'Global';
+
+    if (isExtendingVector(row)) {
+        extending = 'VECTOR';
+    }
+
+    if (isExtendingFrame(row)) {
+        extending = 'FRAME';
+    }
 
     nodeTypes.push(name);
 
-    output += `export interface ${name} extends ${extendsVector ? 'VECTOR' : 'Global'} {\n`;
+    output += `export interface ${name} extends ${extending} {\n`;
     output += `    readonly type: '${name}';\n`;
     output += getProperties(row);
     output += `}\n\n`;
@@ -137,6 +155,9 @@ document.getElementById('files-types')?.querySelectorAll('tbody tr').forEach((ro
 // Patches
 output = output.replace('type Transform = null;', 'type Transform = [[number, number, number], [number, number, number]];');
 output = output.replace('interface TEXT extends VECTOR {', 'interface TEXT extends VECTOR {\n    readonly fillOverrideTable: never;');
+
+// Static
+output += await fs.readFile('./static.d.ts', 'utf-8');
 
 // Write to file
 await fs.writeFile('./index.d.ts', output);

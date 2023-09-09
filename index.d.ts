@@ -85,7 +85,7 @@ export interface FRAME extends Global {
     readonly styles: Map<StyleType, string>;
 }
 
-export interface GROUP extends Global {
+export interface GROUP extends FRAME {
     readonly type: 'GROUP';
 }
 
@@ -212,17 +212,17 @@ export interface SLICE extends Global {
     readonly relativeTransform: Transform;
 }
 
-export interface COMPONENT extends Global {
+export interface COMPONENT extends FRAME {
     readonly type: 'COMPONENT';
     readonly componentPropertyDefinitions: Map<string, ComponentPropertyDefinition>;
 }
 
-export interface COMPONENT_SET extends Global {
+export interface COMPONENT_SET extends FRAME {
     readonly type: 'COMPONENT_SET';
     readonly componentPropertyDefinitions: Map<string, ComponentPropertyDefinition>;
 }
 
-export interface INSTANCE extends Global {
+export interface INSTANCE extends FRAME {
     readonly type: 'INSTANCE';
     readonly componentId: string;
     readonly isExposedInstance: boolean;
@@ -594,3 +594,26 @@ export interface VariableAlias {
     readonly id: string;
 }
 
+interface GetFileResponse {
+  name: string;
+  role: string;
+  lastModified: string;
+  editorType: string;
+  thumbnailUrl: string;
+  version: string;
+  document: DOCUMENT;
+  components: Map<string, Component>;
+  componentSets: Map<string, ComponentSet>;
+  schemaVersion: 0;
+  styles: Map<string, Style>;
+  mainFileKey: string;
+  branches: [
+    {
+      key: string;
+      name: string;
+      thumbnail_url: string;
+      last_modified: string;
+      link_access: string;
+    }
+  ];
+}
