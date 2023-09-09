@@ -1,5 +1,3 @@
-import { DOCUMENT } from "./index.js";
-
 interface GetFileResponse {
   name: string;
   role: string;

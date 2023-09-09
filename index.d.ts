@@ -617,3 +617,31 @@ interface GetFileResponse {
     }
   ];
 }
+
+interface GetFileNodesResponse {
+  name: string;
+  role: string;
+  lastModified: string;
+  editorType: string;
+  thumbnailUrl: string;
+  err: string;
+  nodes: Record<
+    string,
+    {
+      document: DOCUMENT;
+      components: Map<string, Component>;
+      schemaVersion: 0;
+      styles: Map<string, Style>;
+    }
+  >;
+}
+
+interface GetImageResponse {
+  err: string;
+  images: Map<string, string>;
+  status: number;
+}
+
+interface GetImageFillsResponse {
+  images: Record<string, string>;
+}
