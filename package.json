@@ -1,6 +1,6 @@
 {
   "name": "@dicebear/typings-figma-rest-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TypeScript typings for the Figma REST API",
   "keywords": [],
   "homepage": "https://www.dicebear.com",
