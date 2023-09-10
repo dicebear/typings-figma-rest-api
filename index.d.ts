@@ -6,8 +6,8 @@ export interface Global {
     rotation: number;
     pluginData: unknown;
     sharedPluginData: unknown;
-    componentPropertyReferences: Map<string, String>;
-    boundVariables: Map<string, VariableAlias | VariableAlias[]>;
+    componentPropertyReferences: Record<string, String>;
+    boundVariables: Record<string, VariableAlias | VariableAlias[]>;
 }
 
 export interface DOCUMENT extends Global {
@@ -82,7 +82,7 @@ export interface FRAME extends Global {
     effects: Effect[];
     isMask: boolean;
     isMaskOutline: boolean;
-    styles: Map<StyleType, string>;
+    styles: Record<StyleType, string>;
 }
 
 export interface GROUP extends FRAME {
@@ -123,7 +123,7 @@ export interface VECTOR extends Global {
     isMask: boolean;
     fills: Paint[];
     fillGeometry: Path[];
-    fillOverrideTable: Map<number,PaintOverride>;
+    fillOverrideTable: Record<number,PaintOverride>;
     strokes: Paint[];
     strokeWeight: number;
     individualStrokeWeights: StrokeWeights;
@@ -133,7 +133,7 @@ export interface VECTOR extends Global {
     strokeMiterAngle: number;
     strokeGeometry: Path[];
     strokeAlign: 'INSIDE' | 'OUTSIDE' | 'CENTER';
-    styles: Map<StyleType, string>;
+    styles: Record<StyleType, string>;
 }
 
 export interface BOOLEAN_OPERATION extends VECTOR {
@@ -198,7 +198,7 @@ export interface TEXT extends VECTOR {
     characters: string;
     style: TypeStyle;
     characterStyleOverrides: number[];
-    styleOverrideTable: Map<number,TypeStyle>;
+    styleOverrideTable: Record<number,TypeStyle>;
     lineTypes: string[];
     lineIndentations: number[];
 }
@@ -214,12 +214,12 @@ export interface SLICE extends Global {
 
 export interface COMPONENT extends FRAME {
     type: 'COMPONENT';
-    componentPropertyDefinitions: Map<string, ComponentPropertyDefinition>;
+    componentPropertyDefinitions: Record<string, ComponentPropertyDefinition>;
 }
 
 export interface COMPONENT_SET extends FRAME {
     type: 'COMPONENT_SET';
-    componentPropertyDefinitions: Map<string, ComponentPropertyDefinition>;
+    componentPropertyDefinitions: Record<string, ComponentPropertyDefinition>;
 }
 
 export interface INSTANCE extends FRAME {
@@ -227,7 +227,7 @@ export interface INSTANCE extends FRAME {
     componentId: string;
     isExposedInstance: boolean;
     exposedInstances: string[];
-    componentProperties: Map<string, ComponentProperty>;
+    componentProperties: Record<string, ComponentProperty>;
     overrides: Overrides[];
 }
 
@@ -271,7 +271,7 @@ export interface SHAPE_WITH_TEXT extends Global {
     strokeDashes: number[];
     strokeAlign: 'INSIDE' | 'OUTSIDE' | 'CENTER';
     relativeTransform: Transform;
-    styles: Map<StyleType, string>;
+    styles: Record<StyleType, string>;
 }
 
 export interface CONNECTOR extends Global {
@@ -303,7 +303,7 @@ export interface CONNECTOR extends Global {
     strokeAlign: 'INSIDE' | 'OUTSIDE' | 'CENTER';
     textBackground: ConnectorTextBackground;
     relativeTransform: Transform;
-    styles: Map<StyleType, string>;
+    styles: Record<StyleType, string>;
 }
 
 export interface WASHI_TAPE extends VECTOR {
@@ -404,7 +404,7 @@ export interface Paint {
     imageRef: string;
     filters: ImageFilters;
     gifRef: string;
-    boundVariables: Map<string, VariableAlias | VariableAlias[]>;
+    boundVariables: Record<string, VariableAlias | VariableAlias[]>;
 }
 
 export interface Vector {
@@ -463,7 +463,7 @@ export interface TypeStyle {
     letterSpacing: number;
     fills: Paint[];
     hyperlink: Hyperlink;
-    opentypeFlags: Map<string, number>;
+    opentypeFlags: Record<string, number>;
     lineHeightPx: number;
     lineHeightPercent: number;
     lineHeightPercentFontSize: number;
@@ -555,7 +555,7 @@ export interface ComponentProperty {
     type: ComponentPropertyType;
     value: boolean | string;
     preferredValues?: InstanceSwapPreferredValue[];
-    boundVariables: Map<string, VariableAlias | VariableAlias[]>;
+    boundVariables: Record<string, VariableAlias | VariableAlias[]>;
 }
 
 export interface ComponentPropertyType {

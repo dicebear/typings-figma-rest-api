@@ -48,6 +48,7 @@ function mapType(type: string) {
     type = type.replace('Number', 'number');
     type = type.replace('Boolean', 'boolean');
     type = type.replace('Any', 'unknown');
+    type = type.replace('Map<', 'Record<');
 
     return type;
 }
